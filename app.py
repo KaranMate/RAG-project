@@ -16,14 +16,14 @@ st.set_page_config(page_title="RAG Book Assistant", page_icon="📚", layout="wi
 
 st.title("📚 RAG Book Assistant")
 
-# 1. Session State Initialization
+# 1. Session State Initialization.
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
 if "vectorstore" not in st.session_state:
     st.session_state.vectorstore = None
 
-# 2. Sidebar Controls & File Upload
+# 2. Sidebar Controls & File Upload.
 with st.sidebar:
     st.header("⚙️ Document Setup")
     uploaded_file = st.file_uploader("Upload a PDF book", type="pdf")
