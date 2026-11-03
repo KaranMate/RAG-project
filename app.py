@@ -38,12 +38,12 @@ if process_btn and uploaded_file:
     with st.spinner("Processing document and generating vector embeddings..."):
         file_path = None
         try:
-            # Safely create temporary file
+            # Safely create temporary file.
             with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
                 tmp_file.write(uploaded_file.read())
                 file_path = tmp_file.name
 
-            # Load and split
+            # Load and split.
             loader = PyPDFLoader(file_path)
             docs = loader.load()
 
@@ -55,7 +55,7 @@ if process_btn and uploaded_file:
 
             embeddings = OpenAIEmbeddings()
 
-            # Store in session state (in-memory Chroma instance)
+            # Store in session state (in-memory Chroma instance).
             st.session_state.vectorstore = Chroma.from_documents(
                 documents=chunks,
                 embedding=embeddings
